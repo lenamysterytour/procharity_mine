@@ -1,0 +1,109 @@
+plugins {
+    id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "6.0.0-m2"
+}
+
+repositories {
+    mavenCentral()
+}
+
+def selenideVersion = "6.19.1",
+    jUnitJupiterVersion = "5.10.0",
+    restAssuredVersion = "5.3.2",
+    allureSelenideVersion = "2.24.0",
+    allureRestAssuredVersion = '2.24.0',
+    slf4jSimpleVersion = "2.0.9",
+    ownerVersion = "1.0.12",
+    javaFakerVersion = "1.0.2"
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:$selenideVersion",
+            "org.junit.jupiter:junit-jupiter:$jUnitJupiterVersion",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.rest-assured:json-schema-validator:$restAssuredVersion",
+            "io.qameta.allure:allure-selenide:$allureSelenideVersion",
+            "io.qameta.allure:allure-rest-assured:$allureRestAssuredVersion",
+            "org.slf4j:slf4j-simple:$slf4jSimpleVersion",
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "com.github.javafaker:javafaker:$javaFakerVersion")
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+
+task api_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("api")
+    }
+}
+
+task tasklinks_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("tasklinks")
+    }
+}
+task navlinks_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("navlinks")
+    }
+}
+task volunteerlinks_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("volunteerlinks")
+    }
+}
+task nkolinks_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("nkolinks")
+    }
+}
+task businesslinks_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("businesslinks")
+    }
+}
+task apinew_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("apinew")
+    }
+}
+task aboutprojectlinks_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("aboutprojectlinks")
+    }
+}
+
+
+task email_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("email")
+    }
+}
+
+task negative_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("negative")
+    }
+}
+
+task portfolio_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("portfolio")
+    }
+}
