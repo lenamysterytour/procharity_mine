@@ -107,3 +107,25 @@ task portfolio_test(type: Test) {
         includeTags("portfolio")
     }
 }
+
+task now_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("now")
+    }
+}
+task length_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("length")
+    }
+}
+task telegramsymbols_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("telegramsymbols")
+    }
+}
+task phone_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("phone")
+    }
+}
+

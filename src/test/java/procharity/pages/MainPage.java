@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class MainPage {
 
     private final SelenideElement registerIcon = $(".header__login-l"),
-            registerAsFoundationButton = $(byAttribute("href", "/foundations/new/"));
+    registerAsFoundationButton = $(byAttribute("href", "/foundations/new/"));
 
     public MainPage clickRegisterIcon() {
         registerIcon.click();

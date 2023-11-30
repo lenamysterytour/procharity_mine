@@ -7,11 +7,12 @@ import org.junit.jupiter.api.Test;
 import procharity.pages.MainPage;
 import procharity.tests.TestBase;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class AboutProjectLinks extends TestBase {
+public class AboutProjectLinksPlusExtra extends TestBase {
 
  MainPage mainPage = new MainPage();
     @Test
@@ -29,8 +30,8 @@ public class AboutProjectLinks extends TestBase {
         mainPage.openMainPage();
         $(byText("О проекте")).hover();
         $(byLinkText("Команда")).click();
-        $(".content-inner").shouldHave(Condition.text("Команда проекта"));
-        $(".content-inner").shouldHave(Condition.text("Команда разработки"));
+        $(".content-inner").shouldHave(text("Команда проекта"));
+        $(".content-inner").shouldHave(text("Команда разработки"));
     }
 
 
@@ -40,7 +41,7 @@ public class AboutProjectLinks extends TestBase {
         mainPage.openMainPage();
         $(byText("О проекте")).hover();
         $(byLinkText("Блог")).click();
-        $(".row article").shouldHave(Condition.text("Блог Procharity"));
+        $(".row article").shouldHave(text("Блог Procharity"));
     }
 
     @Test
@@ -49,7 +50,7 @@ public class AboutProjectLinks extends TestBase {
         mainPage.openMainPage();
         $(byText("О проекте")).hover();
         $(byLinkText("Документы")).click();
-        $(".article").shouldHave(Condition.text("Наши документы и реквизиты"));
+        $(".article").shouldHave(text("Наши документы и реквизиты"));
     }
 
     @Test
@@ -58,7 +59,7 @@ public class AboutProjectLinks extends TestBase {
         mainPage.openMainPage();
         $(byText("О проекте")).hover();
         $(byLinkText("Партнеры")).click();
-        $(".article").shouldHave(Condition.text("Наши партнеры"));
+        $(".article").shouldHave(text("Наши партнеры"));
     }
 
     @Test
@@ -67,7 +68,7 @@ public class AboutProjectLinks extends TestBase {
         mainPage.openMainPage();
         $(byText("О проекте")).hover();
         $(byLinkText("Отзывы")).click();
-        $(".article").shouldHave(Condition.text("Отзывы"));
+        $(".article").shouldHave(text("Отзывы"));
     }
 
     @Test
@@ -76,7 +77,7 @@ public class AboutProjectLinks extends TestBase {
         mainPage.openMainPage();
         $(byText("О проекте")).hover();
         $(byLinkText("Контакты")).click();
-        $(".article").shouldHave(Condition.text("Наши контакты"));
+        $(".article").shouldHave(text("Наши контакты"));
     }
     @Test
     @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks")})
@@ -84,15 +85,23 @@ public class AboutProjectLinks extends TestBase {
         mainPage.openMainPage();
         $(byText("О проекте")).hover();
         $(byLinkText("Пожертвовать в фонды")).click();
-        $(".article").shouldHave(Condition.text("Сделать пожертвование в фонды"));
+        $(".article").shouldHave(text("Сделать пожертвование в фонды"));
     }
 
     @Test
     @Tag("navlinks")
     public void FAQLinkOpens() {
-        open("");
+        mainPage.openMainPage();
         $(byLinkText("FAQ")).click();
-        $(".heading").shouldHave(Condition.text("Здесь вы найдёте ответы на свои вопросы"));
+        $(".heading").shouldHave(text("Здесь вы найдёте ответы на свои вопросы"));
+    }
+
+    @Test
+    @Tag("navlinks")
+    public void searchOpens() {
+        mainPage.openMainPage();
+       $(".btn-search").click();
+       $(".search-block").shouldHave(text("Что тебя интересует?"));
     }
 }
 
