@@ -46,10 +46,14 @@ tasks.withType(Test) {
     }
 }
 
-
-task api_test(type: Test) {
+task navlinks_test(type: Test) {
     useJUnitPlatform {
-        includeTags("api")
+        includeTags("navlinks")
+    }
+}
+task aboutprojectlinks_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("aboutprojectlinks")
     }
 }
 
@@ -58,11 +62,7 @@ task tasklinks_test(type: Test) {
         includeTags("tasklinks")
     }
 }
-task navlinks_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("navlinks")
-    }
-}
+
 task volunteerlinks_test(type: Test) {
     useJUnitPlatform {
         includeTags("volunteerlinks")
@@ -78,17 +78,17 @@ task businesslinks_test(type: Test) {
         includeTags("businesslinks")
     }
 }
-task apinew_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("apinew")
-    }
-}
-task aboutprojectlinks_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("aboutprojectlinks")
-    }
-}
 
+task negative_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("negative")
+    }
+}
+task positive_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("positive")
+    }
+}
 
 task email_test(type: Test) {
     useJUnitPlatform {
@@ -96,41 +96,26 @@ task email_test(type: Test) {
     }
 }
 
-task negative_test(type: Test) {
+task nameSurnamePosition_test(type: Test) {
     useJUnitPlatform {
-        includeTags("negative")
+        includeTags("nameSurnamePosition")
     }
 }
 
-task portfolio_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("portfolio")
-    }
-}
-
-task now_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("now")
-    }
-}
-task length_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("length")
-    }
-}
-task telegramsymbols_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("telegramsymbols")
-    }
-}
 task phone_test(type: Test) {
     useJUnitPlatform {
         includeTags("phone")
     }
 }
-task new_test(type: Test) {
+task telegram_test(type: Test) {
     useJUnitPlatform {
-        includeTags("new")
+        includeTags("telegram")
     }
 }
+task now_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("now")
+    }
+}
+
 
