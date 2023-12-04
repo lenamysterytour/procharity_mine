@@ -77,5 +77,24 @@ public class PhoneLength extends TestBase {
 
     }
 
+
+
+
+    @Test
+    @Tags({@Tag("phone"),@Tag("negative")})
+    @DisplayName("При вводе в поле телефон значения длиной 11 символа(ов) - дополнительные символы стираются автоматически")
+    public void phoneLength11worksNot() {
+        mainPage.openMainPage()
+                .clickRegisterIcon()
+                .clickRegisterAsFoundationButton();
+        contactFacepage.
+                 setNumber(phoneTestData.phoneInvalidLength11);
+        String phoneInput = $(".contacts__phone").getValue();
+        System.out.println(phoneInput);
+        Assertions.assertTrue((phoneInput.length() == 17));
+
+
+    }
+
 }
 

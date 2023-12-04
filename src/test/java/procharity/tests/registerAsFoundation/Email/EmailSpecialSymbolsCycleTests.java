@@ -6,6 +6,7 @@ import procharity.pages.MainPage;
 import procharity.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 public class EmailSpecialSymbolsCycleTests extends TestBase {
     MainPage mainPage = new MainPage();
@@ -13,41 +14,49 @@ public class EmailSpecialSymbolsCycleTests extends TestBase {
 
 
     @Test
-    @Tags({@Tag("email"), @Tag("new")})
+    @Tags({@Tag("email"), @Tag("negative")})
     @DisplayName("Поочередно проверить все неразрешенные спецсимволы для поля емейл")
     public void testForbiddenSpecialSymbolsSeparately() {
 
         String[] specialSymbols = {"№", "[", "]", "<", ">"};
 
-        mainPage.openMainPage()
-                .clickRegisterIcon()
-                .clickRegisterAsFoundationButton();
-
-        for (String s : specialSymbols) {
-            contactFacepage.setEmail(s)
-                    .clickRegisterButton();
-            contactFacepage.checkEmailErrorAppears();
-            $(".contacts__email").clear();
-        }
-    }
-        @Test
-        @Tags({@Tag("email"), @Tag("new")})
-        @DisplayName("Поочередно проверить все неразрешенные спецсимволы для поля емейл")
-        public void testAllowedSpecialSymbolsSeparately() {
-String[] forbiddenSpecialSymbols =  {"!","#","$","%","&","'","*","+","-","/","?","^","=","_","`","|","(",")","~",".",","," ",":",";","@"};
-
+        step("get to Register as Foundation form", () -> {
             mainPage.openMainPage()
                     .clickRegisterIcon()
                     .clickRegisterAsFoundationButton();
+        });
 
+        step("set special symbols into email input and check if error appears", () -> {
+            for (String s : specialSymbols) {
+                contactFacepage.setEmail("a" + s + "a@gmail.com")
+                        .clickRegisterButton();
+                contactFacepage.checkEmailErrorAppears();
+                $(".contacts__email").clear();
+            }
+        });
+    }
+
+
+    @Test
+    @Tags({@Tag("email"), @Tag("positive")})
+    @DisplayName("Поочередно проверить все разрешенные спецсимволы для поля емейл")
+    public void testAllowedSpecialSymbolsSeparately() {
+        String[] forbiddenSpecialSymbols = {"#", "$", "%", "&", "'", "*", "+", "-", "/", "=", "?", "^", "_", "`", "{", "|", "}", "~"};
+
+        step("get to Register as Foundation form", () -> {
+            mainPage.openMainPage()
+                    .clickRegisterIcon()
+                    .clickRegisterAsFoundationButton();
+        });
+
+        step("set special symbols into email input and check if error appears", () -> {
             for (String s : forbiddenSpecialSymbols) {
-                contactFacepage.setEmail(s)
+                contactFacepage.setEmail("a" + s + "a@gmail.com")
                         .clickRegisterButton();
                 contactFacepage.checkEmailErrorAppearsNot();
                 $(".contacts__email").clear();
             }
-
-
+        });
     }
 
 

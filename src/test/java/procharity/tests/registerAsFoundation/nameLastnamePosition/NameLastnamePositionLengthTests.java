@@ -1,4 +1,4 @@
-package procharity.tests.registerAsFoundation.nameSurnamePosition;
+package procharity.tests.registerAsFoundation.nameLastnamePosition;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
@@ -10,7 +10,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 import procharity.tests.registerAsFoundation.NameLastNamePositionTestData;
 
-public class NameSurnamePositionLengthTests extends TestBase {
+public class NameLastnamePositionLengthTests extends TestBase {
     MainPage mainPage = new MainPage();
     ContactFacepage contactFacepage = new ContactFacepage();
     NameLastNamePositionTestData nameLastNamePositionTestData = new NameLastNamePositionTestData();

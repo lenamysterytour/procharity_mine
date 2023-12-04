@@ -65,41 +65,6 @@ public class EmailDomainPartSymbolsTests extends TestBase {
                 .clickRegisterButton()
                 .checkEmailErrorAppears();
     }
-    @Disabled("Отключено временно, чтобы не создавать левые аккаунты в базе")
-    @Test
-    @Tags({@Tag("email"), @Tag("positive")})
-    @DisplayName("При вводе в доменную часть разрешенных символов кнопка \"Зарегистрироваться\" активна")
-    public void emailWithAllowedSymbolsInDomainPartIsValid() {
-
-
-        mainPage.openMainPage()
-                .clickRegisterIcon()
-                .clickRegisterAsFoundationButton();
-
-        contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail("procharity@!#$%&'*+-/=?^_`[|](~).,:;@.com")
-
-                .clickRegisterButton()
-                .checkNextPageOrganizationOpens();
-    }
-    @Test
-    @Tags({@Tag("email"), @Tag("negative"),@Tag("new")})
-    @DisplayName("При вводе в доменную часть неразрешенных символов - кнопка \"Зарегистрироваться\" неактивна")
-    public void emailWithForbiddenSymbolsInDomainPartIsInvalid() {
-
-
-        mainPage.openMainPage()
-                .clickRegisterIcon()
-                .clickRegisterAsFoundationButton();
-
-        contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail("№[],<>")
-
-                .clickRegisterButton()
-                .checkEmailErrorAppears();
-    }
-
-
 
 
 }

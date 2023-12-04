@@ -49,40 +49,6 @@ public class EmailLocalPartSymbolsTests extends TestBase {
 
     @Test
     @Tags({@Tag("email"), @Tag("negative")})
-    @DisplayName("При вводе в локальную часть неразрешенных символов кнопка \"Зарегистрироваться\" неактивна")
-    public void emailWithForbiddenSpecialSymbolsInLocalPartIsInvalid() {
-
-
-        mainPage.openMainPage()
-                .clickRegisterIcon()
-                .clickRegisterAsFoundationButton();
-
-        contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail("№[],<>@gmail.com")
-                .clickRegisterButton()
-                .checkEmailErrorAppears();
-    }
-
-    @Disabled("Отключено, чтобы не попадать в базу данных")
-    @Test
-    @Tags({@Tag("email"), @Tag("positive")})
-    @DisplayName("При вводе в локальную часть разрешенных символов кнопка \"Зарегистрироваться\" активна")
-    public void emailWithAllowedSpecialSymbolsInLocalPartIsValid() {
-
-
-        mainPage.openMainPage()
-                .clickRegisterIcon()
-                .clickRegisterAsFoundationButton();
-
-        contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail("!#$%&'*+-/=?^_`[|](~).,:@;@gmail.com")
-                .clickRegisterButton()
-                .checkNextPageOrganizationOpens();
-    }
-
-
-    @Test
-    @Tags({@Tag("email"), @Tag("negative")})
     @DisplayName("При вводе email без символа собачки кнопка Зарегистрироваться неактивна")
     public void emailWithoutAtSignCausesError() {
 

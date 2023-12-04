@@ -1,4 +1,4 @@
-package procharity.tests.registerAsFoundation.nameSurnamePosition;
+package procharity.tests.registerAsFoundation.nameLastnamePosition;
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
 import procharity.pages.MainPage;
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 import procharity.tests.registerAsFoundation.EmailTestData;
 
-public class NameSurnamePositionSymbolsTests extends TestBase {
+public class NameLastnamePositionSymbolsTests extends TestBase {
     MainPage mainPage = new MainPage();
     ContactFacepage contactFacepage = new ContactFacepage();
     EmailTestData testData = new EmailTestData();
