@@ -1,4 +1,4 @@
-package procharity.tests.registervalidationnko.Email.SymbolsTests;
+package procharity.tests.registerAsFoundation.Email;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
@@ -8,7 +8,7 @@ import procharity.tests.TestBase;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-public class EmailLocalPartTests extends TestBase {
+public class EmailLocalPartSymbolsTests extends TestBase {
 
     MainPage mainPage = new MainPage();
     ContactFacepage contactFacepage = new ContactFacepage();
@@ -75,7 +75,7 @@ public class EmailLocalPartTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail("1234@gmail.com")
+                .setEmail("!#$%&'*+-/=?^_`[|](~).,:@;@gmail.com")
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
     }

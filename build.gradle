@@ -128,4 +128,9 @@ task phone_test(type: Test) {
         includeTags("phone")
     }
 }
+task new_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("new")
+    }
+}
 

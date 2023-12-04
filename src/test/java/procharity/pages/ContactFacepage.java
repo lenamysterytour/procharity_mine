@@ -3,8 +3,7 @@ package procharity.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selenide.$;
@@ -20,9 +19,10 @@ public class ContactFacepage {
             registerButton = $((byAttribute("value", "Зарегистрироваться"))),
 
     titleOfOrganizationPage = $(".organization__title"),
-            emailErrorMessage = $(byTagAndText("p", "Проверьте поле \"Электронная почта")),
-            phoneErrorMessage = $(byTagAndText("p", "Проверьте поле \"Телефон")),
+            emailErrorMessage = $(byTagAndText("p", "Проверьте поле \"Электронная почта\"")),
+            phoneErrorMessage = $(byTagAndText("p", "Проверьте поле \"Телефон\"")),
             emptyErrorMessage = $(byTagAndText("p", "Поле обязательное")),
+
     telegramErrorMessage = $(byTagAndText("p", "Проверьте, что в поле указан только ник (без ссылок и @)"));
 
 
@@ -73,6 +73,12 @@ public class ContactFacepage {
         return this;
     }
 
+
+    public ContactFacepage checkEmailErrorAppearsNot() {
+        emailErrorMessage.shouldNotBe(visible);
+        return this;
+    }
+
     public ContactFacepage checkTelegramErrorAppears() {
         telegramErrorMessage.should(visible);
         return this;
@@ -81,6 +87,8 @@ public class ContactFacepage {
     public ContactFacepage checkPhoneErrorAppears() {
         phoneErrorMessage.should(visible);
         return this;}
+
+
 
     public ContactFacepage checkEmptyErrorAppears() {
         emptyErrorMessage.should(visible);

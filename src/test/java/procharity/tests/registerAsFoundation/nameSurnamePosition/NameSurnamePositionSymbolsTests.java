@@ -1,20 +1,18 @@
-package procharity.tests.registervalidationnko.nameSurnamePosition;
+package procharity.tests.registerAsFoundation.nameSurnamePosition;
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
 import procharity.pages.MainPage;
 import procharity.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-import procharity.tests.TestBase;
-import procharity.tests.registervalidationnko.TestData;
+import procharity.tests.registerAsFoundation.EmailTestData;
 
 public class NameSurnamePositionSymbolsTests extends TestBase {
     MainPage mainPage = new MainPage();
     ContactFacepage contactFacepage = new ContactFacepage();
-    TestData testData = new TestData();
+    EmailTestData testData = new EmailTestData();
 
     @Disabled
     @Test
@@ -28,9 +26,9 @@ public class NameSurnamePositionSymbolsTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptNameSurnamePosition()
-                .setName(testData.universalInputSpecialSymbols)
-                .setLastName(testData.universalInputSpecialSymbols)
-                .setPosition(testData.universalInputSpecialSymbols)
+                .setName(testData.emailInputSpecialSymbols)
+                .setLastName(testData.emailInputSpecialSymbols)
+                .setPosition(testData.emailInputSpecialSymbols)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -46,9 +44,9 @@ public class NameSurnamePositionSymbolsTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptNameSurnamePosition()
-                .setName(testData.universalInputCyrillic)
-                .setLastName(testData.universalInputCyrillic)
-                .setPosition(testData.universalInputCyrillic)
+                .setName(testData.emailInputCyrillic)
+                .setLastName(testData.emailInputCyrillic)
+                .setPosition(testData.emailInputCyrillic)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -65,9 +63,9 @@ public class NameSurnamePositionSymbolsTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptNameSurnamePosition()
-                .setName(testData.universalInputLatin)
-                .setLastName(testData.universalInputLatin)
-                .setPosition(testData.universalInputLatin)
+                .setName(testData.emailInputLatin)
+                .setLastName(testData.emailInputLatin)
+                .setPosition(testData.emailInputLatin)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -84,9 +82,9 @@ public class NameSurnamePositionSymbolsTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptNameSurnamePosition()
-                .setName(testData.universalInputDigits)
-                .setLastName(testData.universalInputDigits)
-                .setPosition(testData.universalInputDigits)
+                .setName(testData.emailInputDigits)
+                .setLastName(testData.emailInputDigits)
+                .setPosition(testData.emailInputDigits)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();

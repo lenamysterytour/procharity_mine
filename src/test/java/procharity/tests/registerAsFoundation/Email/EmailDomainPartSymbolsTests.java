@@ -1,4 +1,4 @@
-package procharity.tests.registervalidationnko.Email.SymbolsTests;
+package procharity.tests.registerAsFoundation.Email;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
@@ -8,7 +8,7 @@ import procharity.tests.TestBase;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-public class EmailSymbolsTests extends TestBase {
+public class EmailDomainPartSymbolsTests extends TestBase {
 
 
     MainPage mainPage = new MainPage();
@@ -47,7 +47,6 @@ public class EmailSymbolsTests extends TestBase {
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
 
-
     }
 
 
@@ -84,9 +83,9 @@ public class EmailSymbolsTests extends TestBase {
                 .checkNextPageOrganizationOpens();
     }
     @Test
-    @Tags({@Tag("email"), @Tag("negative")})
-    @DisplayName("При вводе в доменную часть неразрешенных символов кнопка \"Зарегистрироваться\" неактивна")
-    public void emailWithForbiddenSymbolsInDomainPartIsValid() {
+    @Tags({@Tag("email"), @Tag("negative"),@Tag("new")})
+    @DisplayName("При вводе в доменную часть неразрешенных символов - кнопка \"Зарегистрироваться\" неактивна")
+    public void emailWithForbiddenSymbolsInDomainPartIsInvalid() {
 
 
         mainPage.openMainPage()
@@ -99,5 +98,8 @@ public class EmailSymbolsTests extends TestBase {
                 .clickRegisterButton()
                 .checkEmailErrorAppears();
     }
+
+
+
 
 }

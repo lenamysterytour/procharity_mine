@@ -1,26 +1,23 @@
-package procharity.tests.registervalidationnko.Email.LengthTests;
+package procharity.tests.registerAsFoundation.Email;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
 import procharity.pages.MainPage;
 import procharity.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-import procharity.tests.TestBase;
-import procharity.tests.TestBase;
-import procharity.tests.registervalidationnko.TestData;
+import procharity.tests.registerAsFoundation.EmailTestData;
 
 public class EmailLengthTests extends TestBase {
     MainPage mainPage = new MainPage();
     ContactFacepage contactFacepage = new ContactFacepage();
-    TestData testData = new TestData();
+    EmailTestData emailTestData = new EmailTestData();
 
     @Test
     @Tags({@Tag("email"), @Tag("positive"), @Tag("length")})
-    @DisplayName("При вводе в поле \"Электронная почта\" 1 символа(ов) кнопка \"Зарегистрироваться\" активна")
+    @DisplayName("При вводе в поле \"Электронная почта\" 1 символа(ов) - кнопка \"Зарегистрироваться\" активна")
     public void emailWithLength1IsValid() {
 
 
@@ -30,7 +27,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(testData.emailValid1length)
+                .setEmail(emailTestData.emailValidLength1)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -39,7 +36,7 @@ public class EmailLengthTests extends TestBase {
     @Disabled("Чтобы не пополнять базу данных")
     @Test
     @Tags({@Tag("email"), @Tag("positive"), @Tag("length")})
-    @DisplayName("При вводе в поле \"Электронная почта\" 255 символа(ов) кнопка \"Зарегистрироваться\" активна")
+    @DisplayName("При вводе в поле \"Электронная почта\" 255 символа(ов) - кнопка \"Зарегистрироваться\" активна")
     public void emailWithLength255IsValid() {
 
 
@@ -49,7 +46,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(testData.emailValidLength255)
+                .setEmail(emailTestData.emailValidLength255)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -58,9 +55,8 @@ public class EmailLengthTests extends TestBase {
     @Disabled("Чтобы не пополнять базу данных")
     @Test
     @Tags({@Tag("email"), @Tag("positive"), @Tag("length")})
-    @DisplayName("При вводе в поле \"Электронная почта\" 254 символа(ов) кнопка \"Зарегистрироваться\" активна")
+    @DisplayName("При вводе в поле \"Электронная почта\" 254 символа(ов) - кнопка \"Зарегистрироваться\" активна")
     public void emailWithLength254IsValid() {
-
 
 
         mainPage.openMainPage()
@@ -68,7 +64,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(testData.emailValidLength254)
+                .setEmail(emailTestData.emailValidLength254)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -77,9 +73,8 @@ public class EmailLengthTests extends TestBase {
 
     @Test
     @Tags({@Tag("email"), @Tag("negative"), @Tag("length")})
-    @DisplayName("При вводе в поле \"Электронная почта\" 256 символа(ов) кнопка \"Зарегистрироваться\" неактивна")
+    @DisplayName("При вводе в поле \"Электронная почта\" 256 символа(ов) - кнопка \"Зарегистрироваться\" неактивна")
     public void emailWithLength256IsInValid() {
-
 
 
         mainPage.openMainPage()
@@ -87,7 +82,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(testData.emailInValidLength256)
+                .setEmail(emailTestData.emailInValidLength256)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -96,10 +91,8 @@ public class EmailLengthTests extends TestBase {
     @Disabled("Чтобы не пополнять базу данных")
     @Test
     @Tags({@Tag("email"), @Tag("positive"), @Tag("length")})
-    @DisplayName("При вводе в поле \"Электронная почта\" 100 символа(ов) кнопка \"Зарегистрироваться\" активна")
+    @DisplayName("При вводе в поле \"Электронная почта\" 100 символа(ов) - кнопка \"Зарегистрироваться\" активна")
     public void emailWithLength100IsValid() {
-
-
 
 
         mainPage.openMainPage()
@@ -107,28 +100,28 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(testData.emailValidLength100)
+                .setEmail(emailTestData.emailValidLength100)
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
     }
 
+
     @Test
-    @Tags({@Tag("email"), @Tag("negative"), @Tag("now")})
-    @DisplayName("При вводе в поле \"Электронная почта\" 1000 символа(ов) кнопка \"Зарегистрироваться\" неактивна")
-    public void emailWithLength1000IsInValid() {
-
-
-
+    @Tags({@Tag("email"), @Tag("positive")})
+    @DisplayName("При вводе в поле Емейл значений огромной длины символы не вводятся т.к. стираются автоматически")
+    public void emailBigLengthGetsErased() {
 
         mainPage.openMainPage()
                 .clickRegisterIcon()
                 .clickRegisterAsFoundationButton();
 
-        contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(testData.emailValidLength1000)
+        contactFacepage
+                .setEmail(emailTestData.emailInvalidLength1000);
 
-                .clickRegisterButton()
-                .checkNextPageOrganizationOpens();
+        String emailInput = $(".contacts__email").getValue();
+        System.out.println(emailInput);
+        Assertions.assertTrue(emailInput.length() < 50);
+
     }
 }
