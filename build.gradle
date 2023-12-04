@@ -117,5 +117,10 @@ task now_test(type: Test) {
         includeTags("now")
     }
 }
+task new_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("new")
+    }
+}
 
 
