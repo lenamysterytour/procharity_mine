@@ -4,6 +4,8 @@
 
 <img title="procharitymain" alt = "frontpage" src="media/screen/procharityMainPage.PNG" width="700">
 </p>
+<a name="Ссылка"></a>
+
 ## Оглавление
 
 - <a href="#tools">Использованный стек технологий</a>
