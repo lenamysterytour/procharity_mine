@@ -21,7 +21,8 @@ public class AboutProjectLinksPlusExtra extends TestBase {
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием О проекте, которая ведет на страницу О проекте")
     public void aboutProjectLinkOpens() {
         mainPage.openMainPage();
-        $(byText("О проекте")).click();
+        $(".mainmenu-1").click();
+      //  $(byText("О проекте")).click();
         $(byTagAndText("h1", "ProCharity — поиск интеллектуальных волонтеров для благотворительных организаций")).should(Condition.visible);
 
     }
