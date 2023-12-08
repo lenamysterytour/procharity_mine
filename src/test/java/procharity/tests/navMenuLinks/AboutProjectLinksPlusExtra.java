@@ -11,24 +11,23 @@ import procharity.tests.TestBase;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class AboutProjectLinksPlusExtra extends TestBase {
 
- MainPage mainPage = new MainPage();
+    MainPage mainPage = new MainPage();
+
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием О проекте, которая ведет на страницу О проекте")
     public void aboutProjectLinkOpens() {
         mainPage.openMainPage();
-        $(".mainmenu-1").click();
-      //  $(byText("О проекте")).click();
+        $(byText("О проекте")).click();
         $(byTagAndText("h1", "ProCharity — поиск интеллектуальных волонтеров для благотворительных организаций")).should(Condition.visible);
 
     }
 
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием Команда, которая ведет на страницу Команда")
     public void aboutTeamLinkOpens() {
         mainPage.openMainPage();
@@ -40,7 +39,7 @@ public class AboutProjectLinksPlusExtra extends TestBase {
 
 
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием Блог, которая ведет на страницу Блог")
     public void blogLinkOpens() {
         mainPage.openMainPage();
@@ -50,7 +49,7 @@ public class AboutProjectLinksPlusExtra extends TestBase {
     }
 
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием Документы, которая ведет на страницу Документы")
     public void documentsLinkOpens() {
         mainPage.openMainPage();
@@ -60,7 +59,7 @@ public class AboutProjectLinksPlusExtra extends TestBase {
     }
 
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием Партнеры, которая ведет на страницу Партнеры")
     public void partnersLinkOpens() {
         mainPage.openMainPage();
@@ -70,7 +69,7 @@ public class AboutProjectLinksPlusExtra extends TestBase {
     }
 
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием Отзывы, которая ведет на страницу Отзывы")
     public void reviewsLinkOpens() {
         mainPage.openMainPage();
@@ -80,7 +79,7 @@ public class AboutProjectLinksPlusExtra extends TestBase {
     }
 
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием Контакты, которая ведет на страницу Контакты")
     public void contactsLinkOpens() {
         mainPage.openMainPage();
@@ -88,8 +87,9 @@ public class AboutProjectLinksPlusExtra extends TestBase {
         $(byLinkText("Контакты")).click();
         $(".article").shouldHave(text("Наши контакты"));
     }
+
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При наведении мыши на ссылку О проекте в подменю есть ссылка с названием Пожертвовать в фонды, которая ведет на страницу Пожертвовать в фонды")
     public void charityLinkOpens() {
         mainPage.openMainPage();
@@ -99,7 +99,7 @@ public class AboutProjectLinksPlusExtra extends TestBase {
     }
 
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При клике на ссылку FAQ открывается страница FAQ")
     public void FAQLinkOpens() {
         mainPage.openMainPage();
@@ -108,12 +108,12 @@ public class AboutProjectLinksPlusExtra extends TestBase {
     }
 
     @Test
-    @Tags({@Tag("navlinks"),@Tag("aboutprojectlinks"),@Tag("positive")})
+    @Tags({@Tag("navlinks"), @Tag("aboutprojectlinks"), @Tag("positive")})
     @DisplayName("При клике на иконку лупы происходит перенос на страницу поиска")
     public void searchOpens() {
         mainPage.openMainPage();
-       $(".btn-search").click();
-       $(".search-block").shouldHave(text("Что тебя интересует?"));
+        $(".btn-search").click();
+        $(".search-block").shouldHave(text("Что тебя интересует?"));
     }
 }
 

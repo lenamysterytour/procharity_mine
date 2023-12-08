@@ -1,4 +1,4 @@
-package procharity.tests.registerAsFoundation.Telegram;
+package procharity.tests.registerAsFoundation.telegram;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;

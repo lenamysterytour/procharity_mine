@@ -1,4 +1,4 @@
-package procharity.tests.registerAsFoundation.Email;
+package procharity.tests.registerAsFoundation.email;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
@@ -6,7 +6,6 @@ import procharity.pages.MainPage;
 import procharity.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 import procharity.tests.registerAsFoundation.EmailTestData;
 

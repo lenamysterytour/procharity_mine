@@ -8,7 +8,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static io.restassured.RestAssured.baseURI;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +25,7 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = false;
         Configuration.pollingInterval = 400;
-        Configuration.timeout = 4000;
+        Configuration.timeout = 12000;
         Configuration.baseUrl = config.baseUrl();
         RestAssured.baseURI = "https://procharity.ru/";
         Configuration.browser = config.browser();

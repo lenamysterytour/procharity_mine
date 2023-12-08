@@ -1,4 +1,4 @@
-package procharity.tests.registerAsFoundation.Phone;
+package procharity.tests.registerAsFoundation.phone;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;

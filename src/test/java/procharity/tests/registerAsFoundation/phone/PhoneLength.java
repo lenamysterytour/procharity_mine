@@ -1,4 +1,4 @@
-package procharity.tests.registerAsFoundation.Phone;
+package procharity.tests.registerAsFoundation.phone;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
@@ -8,7 +8,6 @@ import procharity.tests.TestBase;
 import procharity.tests.registerAsFoundation.PhoneTestData;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class PhoneLength extends TestBase {
 

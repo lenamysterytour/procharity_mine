@@ -1,4 +1,4 @@
-package procharity.tests.registerAsFoundation.Email;
+package procharity.tests.registerAsFoundation.email;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
@@ -48,7 +48,6 @@ public class EmailSpecialSymbolsCycleTests extends TestBase {
                     .clickRegisterIcon()
                     .clickRegisterAsFoundationButton();
         });
-
         step("set special symbols into email input and check if error appears", () -> {
             for (String s : forbiddenSpecialSymbols) {
                 contactFacepage.setEmail("a" + s + "a@gmail.com")

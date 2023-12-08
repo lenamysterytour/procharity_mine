@@ -1,4 +1,4 @@
-package procharity.tests.registerAsFoundation.Telegram;
+package procharity.tests.registerAsFoundation.telegram;
 
 import org.junit.jupiter.api.*;
 import procharity.pages.ContactFacepage;
@@ -7,17 +7,11 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import procharity.pages.MainPage;
 import procharity.tests.TestBase;
-import procharity.tests.registerAsFoundation.EmailTestData;
-
-
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class TelegramSymbolsTests extends TestBase {
 
     MainPage mainPage = new MainPage();
     ContactFacepage contactFacepage = new ContactFacepage();
-EmailTestData testData = new EmailTestData();
 
     @Test
     @Tags({@Tag("telegram"), @Tag("telegramsymbols")})
@@ -70,6 +64,7 @@ EmailTestData testData = new EmailTestData();
                 .clickRegisterButton()
                 .checkTelegramErrorAppears();
     }
+
     @Test
     @Tags({@Tag("telegram"), @Tag("telegramsymbols")})
     @DisplayName("При вводе в поле Телеграм символов: спецсимволов - кнопка \"Зарегистрироваться\" неактивна")
@@ -86,6 +81,7 @@ EmailTestData testData = new EmailTestData();
                 .clickRegisterButton()
                 .checkTelegramErrorAppears();
     }
+
     @Tag("now")
     @Test
     @DisplayName("При вводе в поле Телеграм символов: цифр - кнопка \"Зарегистрироваться\" неактивна")
