@@ -15,8 +15,24 @@ public class EmailLengthTests extends TestBase {
     EmailTestData emailTestData = new EmailTestData();
 
     @Test
-    @Tags({@Tag("email"), @Tag("positive"), @Tag("length")})
-    @DisplayName("При вводе в поле \"Электронная почта\" 1 символа(ов) - кнопка \"Зарегистрироваться\" активна")
+    @Tags({@Tag("email"), @Tag("negative"), @Tag("length")})
+    @DisplayName("Поле Электронная почта обязательное: При вводе в поле \"Электронная почта\" 0 символа(ов) - кнопка \"Зарегистрироваться\" неактивна")
+    public void emailWithLength0IsInvalid() {
+
+        mainPage.openMainPage()
+                .clickRegisterIcon()
+                .clickRegisterAsFoundationButton();
+
+        contactFacepage.setAllValidInputsExceptEmail()
+                .setEmail(emailTestData.emailInvalidLength0)
+
+                .clickRegisterButton()
+                .checkEmailErrorAppears();
+    }
+
+    @Test
+    @Tags({@Tag("email"), @Tag("negative"), @Tag("length")})
+    @DisplayName("При вводе в поле \"Электронная почта\" 1 символа(ов) - кнопка \"Зарегистрироваться\" неактивна")
     public void emailWithLength1IsValid() {
 
 
@@ -29,7 +45,7 @@ public class EmailLengthTests extends TestBase {
                 .setEmail(emailTestData.emailValidLength1)
 
                 .clickRegisterButton()
-                .checkNextPageOrganizationOpens();
+                .checkEmailErrorAppears();
     }
 
     @Disabled("Чтобы не пополнять базу данных")
@@ -70,6 +86,8 @@ public class EmailLengthTests extends TestBase {
     }
 
 
+
+    @Disabled("Чтобы не пополнять базу данных")
     @Test
     @Tags({@Tag("email"), @Tag("negative"), @Tag("length")})
     @DisplayName("При вводе в поле \"Электронная почта\" 256 символа(ов) - кнопка \"Зарегистрироваться\" неактивна")
