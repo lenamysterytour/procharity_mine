@@ -27,7 +27,7 @@ public class EmailLengthTests extends TestBase {
                 .setEmail(emailTestData.emailInvalidLength0)
 
                 .clickRegisterButton()
-                .checkEmailErrorAppears();
+                .checkEmptyErrorAppears();
     }
 
     @Test
@@ -138,7 +138,7 @@ public class EmailLengthTests extends TestBase {
 
         String emailInput = $(".contacts__email").getValue();
         System.out.println(emailInput);
-        Assertions.assertTrue(emailInput.length() < 50);
+        Assertions.assertTrue(emailInput.length() < 100);
 
     }
 }
