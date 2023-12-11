@@ -18,7 +18,7 @@ public class EmailSpecialSymbolsCycleTests extends TestBase {
     @DisplayName("Поочередно проверить все неразрешенные спецсимволы для поля емейл")
     public void testForbiddenSpecialSymbolsSeparately() {
 
-        String[] specialSymbols = {"№", "[", "]", "<", ">"};
+        String[] forbiddenSpecialSymbols = {"№", "[", "]", "<", ">"};
 
         step("get to Register as Foundation form", () -> {
             mainPage.openMainPage()
@@ -27,7 +27,7 @@ public class EmailSpecialSymbolsCycleTests extends TestBase {
         });
 
         step("set special symbols into email input and check if error appears", () -> {
-            for (String s : specialSymbols) {
+            for (String s : forbiddenSpecialSymbols) {
                 contactFacepage.setEmail("a" + s + "a@gmail.com")
                         .clickRegisterButton();
                 contactFacepage.checkEmailErrorAppears();
@@ -41,7 +41,7 @@ public class EmailSpecialSymbolsCycleTests extends TestBase {
     @Tags({@Tag("email"), @Tag("positive")})
     @DisplayName("Поочередно проверить все разрешенные спецсимволы для поля емейл")
     public void testAllowedSpecialSymbolsSeparately() {
-        String[] forbiddenSpecialSymbols = {"#", "$", "%", "&", "'", "*", "+", "-", "/", "=", "?", "^", "_", "`", "{", "|", "}", "~"};
+        String[] allowedSpecialSymbols = {"#", "$", "%", "&", "'", "*", "+", "-", "/", "=", "?", "^", "_", "`", "{", "|", "}", "~"};
 
         step("get to Register as Foundation form", () -> {
             mainPage.openMainPage()
@@ -49,7 +49,7 @@ public class EmailSpecialSymbolsCycleTests extends TestBase {
                     .clickRegisterAsFoundationButton();
         });
         step("set special symbols into email input and check if error appears", () -> {
-            for (String s : forbiddenSpecialSymbols) {
+            for (String s : allowedSpecialSymbols) {
                 contactFacepage.setEmail("a" + s + "a@gmail.com")
                         .clickRegisterButton();
                 contactFacepage.checkEmailErrorAppearsNot();
