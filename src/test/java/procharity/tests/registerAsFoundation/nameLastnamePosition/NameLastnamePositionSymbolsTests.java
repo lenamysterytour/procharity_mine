@@ -4,8 +4,6 @@ import procharity.pages.ContactFacepage;
 import procharity.pages.MainPage;
 import procharity.tests.TestBase;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 import procharity.tests.registerAsFoundation.EmailTestData;
 
@@ -26,9 +24,9 @@ public class NameLastnamePositionSymbolsTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptNameSurnamePosition()
-                .setName(testData.emailInputSpecialSymbols)
-                .setLastName(testData.emailInputSpecialSymbols)
-                .setPosition(testData.emailInputSpecialSymbols)
+                .setName(testData.getEmailInputSpecialSymbols())
+                .setLastName(testData.getEmailInputSpecialSymbols())
+                .setPosition(testData.getEmailInputSpecialSymbols())
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -44,9 +42,9 @@ public class NameLastnamePositionSymbolsTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptNameSurnamePosition()
-                .setName(testData.emailInputCyrillic)
-                .setLastName(testData.emailInputCyrillic)
-                .setPosition(testData.emailInputCyrillic)
+                .setName(testData.getEmailInputCyrillic())
+                .setLastName(testData.getEmailInputCyrillic())
+                .setPosition(testData.getEmailInputCyrillic())
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -63,9 +61,9 @@ public class NameLastnamePositionSymbolsTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptNameSurnamePosition()
-                .setName(testData.emailInputLatin)
-                .setLastName(testData.emailInputLatin)
-                .setPosition(testData.emailInputLatin)
+                .setName(testData.getEmailInputLatin())
+                .setLastName(testData.getEmailInputLatin())
+                .setPosition(testData.getEmailInputLatin())
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -82,9 +80,9 @@ public class NameLastnamePositionSymbolsTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptNameSurnamePosition()
-                .setName(testData.emailInputDigits)
-                .setLastName(testData.emailInputDigits)
-                .setPosition(testData.emailInputDigits)
+                .setName(testData.getEmailInputDigits())
+                .setLastName(testData.getEmailInputDigits())
+                .setPosition(testData.getEmailInputDigits())
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();

@@ -24,7 +24,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(emailTestData.emailInvalidLength0)
+                .setEmail(emailTestData.getEmailValidLength0())
 
                 .clickRegisterButton()
                 .checkEmptyErrorAppears();
@@ -42,13 +42,13 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(emailTestData.emailValidLength1)
+                .setEmail(emailTestData.getEmailValidLength1())
 
                 .clickRegisterButton()
                 .checkEmailErrorAppears();
     }
 
-    @Disabled("Чтобы не пополнять базу данных")
+    //@Disabled("Чтобы не пополнять базу данных")
     @Test
     @Tags({@Tag("email"), @Tag("positive"), @Tag("length")})
     @DisplayName("При вводе в поле \"Электронная почта\" 255 символа(ов) - кнопка \"Зарегистрироваться\" активна")
@@ -61,7 +61,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(emailTestData.emailValidLength255)
+                .setEmail(emailTestData.getEmailValidLength255())
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -79,7 +79,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(emailTestData.emailValidLength254)
+                .setEmail(emailTestData.getEmailValidLength254())
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -99,7 +99,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(emailTestData.emailInValidLength256)
+                .setEmail(emailTestData.getEmailValidLength256())
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -117,7 +117,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage.setAllValidInputsExceptEmail()
-                .setEmail(emailTestData.emailValidLength100)
+                .setEmail(emailTestData.getEmailValidLength100())
 
                 .clickRegisterButton()
                 .checkNextPageOrganizationOpens();
@@ -134,7 +134,7 @@ public class EmailLengthTests extends TestBase {
                 .clickRegisterAsFoundationButton();
 
         contactFacepage
-                .setEmail(emailTestData.emailInvalidLength1000);
+                .setEmail(emailTestData.getEmailInputHugeLength());
 
         String emailInput = $(".contacts__email").getValue();
         System.out.println(emailInput);

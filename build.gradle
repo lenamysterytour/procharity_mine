@@ -18,6 +18,7 @@ def selenideVersion = "6.19.1",
     javaFakerVersion = "1.0.2"
 
 dependencies {
+    implementation 'org.jetbrains:annotations:24.0.0'
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "org.junit.jupiter:junit-jupiter:$jUnitJupiterVersion",
